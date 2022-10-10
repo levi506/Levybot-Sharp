@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ApplicationIcon />
+    <Win32Resource />
+    <StartupObject>Sharpbot.Program</StartupObject>
+    <LangVersion>8.0</LangVersion>
+    <AssemblyName>Sharpbot</AssemblyName>
+    <RootNamespace>Sharpbot</RootNamespace>
+    <SignAssembly>false</SignAssembly>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <OldToolsVersion>Current</OldToolsVersion>
+    <Configurations>Debug;Release;Dev</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <NoWarn>1701;1702;4014</NoWarn>
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <NoWarn>1701;1702;4014</NoWarn>
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <NoWarn>1701;1702;4014</NoWarn>
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|x64'">
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <NoWarn>1701;1702;4014</NoWarn>
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Plugins\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Plugins\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Plugins\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="3.8.1" />
+    <PackageReference Include="Magick.NET-Q16-HDRI-AnyCPU" Version="12.2.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.23.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
+    <PackageReference Include="Npgsql" Version="7.0.0-preview.7" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.66" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0-preview.7.22375.6" />
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+    <PackageReference Include="TwitchLib" Version="3.4.1" />
+    <PackageReference Include="Victoria" Version="5.2.8" />
+    <PackageReference Include="YoutubeExplode" Version="6.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="application.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Legacy\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Lavalink.jar">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="libsodium.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="libsodium.dll.checksums">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="opus.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="opus.dll.checksums">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Config.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Services\Data\SQLStatements\GuildSettings\" />
+    <Folder Include="src\Services\Data\SQLStatements\SocialEntry\" />
+  </ItemGroup>
+</Project>
